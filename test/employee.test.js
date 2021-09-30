@@ -30,7 +30,27 @@ describe("Initialization", () => {
             expect(getId).toEqual(obj.id);            
         });
     });
-
+    describe("getId undefined", () => {
+        it("should return getId undefined", () => {
+            const obj = new Employee("Tom", 2345, "email@email.com");
+            const getId = obj.getId(1234);
+            expect(getId).not.toEqual(obj.id);
+        });
+    });
+    describe("getEmail", () => {
+        it("should return email value from email property", () => {
+            const obj = new Employee("Tom", 2345, "email@email.com");
+            const getEmail = obj.getEmail("email@email.com");
+            expect(getEmail).toEqual(obj.email);
+        });
+    });
+    describe("getRole", () => {
+        it("should return the employee value as a string", () => {
+            const obj = new Employee("Tom", 2345, "email@email.com");
+            const getRole = obj.getRole("employee");
+            expect(getRole).toEqual("employee");
+        });
+    });
 });
 
 
