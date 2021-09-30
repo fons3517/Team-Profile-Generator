@@ -10,3 +10,11 @@ describe("Initialization", () => {
     })
 
 });
+    describe("getName", () => {
+        it("should get name from Employee object", () => {
+        const obj =  new Employee("Tom", 2345, "email@email.com");
+
+        expect(obj).toBe(obj.name);
+    })
+
+})
