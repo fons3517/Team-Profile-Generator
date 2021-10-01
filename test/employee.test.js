@@ -44,6 +44,13 @@ describe("Initialization", () => {
             expect(getEmail).toEqual(obj.email);
         });
     });
+    describe("getEmail undefined", () => {
+        it("should have getEmail return undefined", () => {
+            const obj = new Employee("Tom", 2345, "email@email.com");
+            const getEmail = obj.getEmail("fons@email.com");
+            expect(getEmail).not.toEqual(obj.email)
+        });
+    });
     describe("getRole", () => {
         it("should return the employee value as a string", () => {
             const obj = new Employee("Tom", 2345, "email@email.com");
