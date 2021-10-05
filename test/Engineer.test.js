@@ -1,4 +1,4 @@
-const Employee = require('../lib/employee.js');
+const Engineer = require('../lib/engineer');
 
 describe("Initialization", () => {
     it("should create a new object with a name, id, email, and github username properties", () => {
