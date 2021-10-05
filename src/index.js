@@ -70,4 +70,84 @@ function createManager() {
         startMenu();
     })
 }
+function createIntern() {
+    console.log("Add Manager")
+    console.log("------------")
+    inquirer.prompt([
+        {
+            type: "text",
+            name: "employeeName",
+            message: "Enter Employee name",
+            
+
+        },
+        {
+            type: "text",
+            name: "employeeId",
+            message: "Enter Employee id",
+            
+        },
+        {
+            type: "text",
+            name: "employeeEmail",
+            message: "Enter Employee email",
+            
+        },
+        {
+            type: "text",
+            name: "school",
+            message: "Enter school name",
+            
+        }
+
+    ]).then(function({employeeName, employeeId, employeeEmail, school}){
+        var currentIntern = new Intern(employeeName, employeeId, employeeEmail, school);
+        internArray.push(currentIntern);
+        startMenu();
+    })
+}
+function createEngineer() {
+    console.log("Add Engineer")
+    console.log("------------")
+    inquirer.prompt([
+        {
+            type: "text",
+            name: "employeeName",
+            message: "Enter Employee name",
+            
+
+        },
+        {
+            type: "text",
+            name: "employeeId",
+            message: "Enter Employee id",
+            
+        },
+        {
+            type: "text",
+            name: "employeeEmail",
+            message: "Enter Employee email",
+            
+        },
+        {
+            type: "text",
+            name: "github",
+            message: "Enter GitHub username",
+            
+        }
+
+    ]).then(function({employeeName, employeeId, employeeEmail, github}){
+        var currentEngineer = new Engineer(employeeName, employeeId, employeeEmail, github);
+        engineerArray.push(currentEngineer);
+        startMenu();
+    })
+}
+function createHTML() {
+    console.log(managerArray, internArray, engineerArray);
+    // for loop for manager array
+    //Generate HTML code with manager values  var htmlManager =""
+    // repeat previous steps for engineer and intern
+    // var HTML = beginneing htm + managerHTML = EngineerHTML +interhtml ++end html
+    //fs.writeFilesysn("./index.html",HTML)
+}
 startMenu();
