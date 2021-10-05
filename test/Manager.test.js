@@ -11,7 +11,7 @@ describe("Initialization", () => {
         }); 
     });
     describe("getRole", () => {
-        it("should get return the value of manager in place of employee", () => {
+        it("should return the value of manager in place of employee", () => {
             const obj = new Manager("tyler", 1234, "tyler@email.com", 01);
             const getRole = obj.getRole("manager");
             expect(getRole).toEqual("manager");

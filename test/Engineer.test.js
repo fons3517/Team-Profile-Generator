@@ -10,4 +10,11 @@ describe("Initialization", () => {
             githubName: "WarrenGBeatty"
         });
     });
+    describe("getGithub", () => {
+        it("should return githubName property value from Engineer object", () => {
+            const obj = new Engineer("Warren", 9876, "warren@email.com", "WarrenGBeatty");
+            const getGithub = obj.getGithub("WarrenGBeatty");
+            expect(getGithub).toEqual(obj.githubName);
+        });
+    });
 });
