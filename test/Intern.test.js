@@ -17,5 +17,11 @@ describe("Initialization", () => {
             expect(getSchool).toEqual(obj.school);
         });
     });
+    describe("getRole", () => {
+        it("should return the role for the new Intern object", () => {
+            const obj = new Intern("Breanna", 2875, "breanna@email.com", "UTSA");
+            const getRole = obj.getRole("Intern");
+            expect(getRole).toEqual("Intern")
+        });
+    });
 });
-//getrole

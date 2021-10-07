@@ -2,6 +2,7 @@ const Intern = require('../lib/intern');
 const Manager = require('../lib/manager');
 const Engineer = require('../lib/engineer');
 const inquirer = require('inquirer');
+const fs = require('fs');
 let internArray = [];
 let managerArray = [];
 let engineerArray = [];
@@ -13,7 +14,7 @@ function startMenu() {
         {
             type: "list",
             message: "Would you like to add a team member?",
-            choices: ["Manager", "Intern", "Engineer", "Exit Application"],
+            choices: ["Intern", "Manager", "Engineer", "Exit Application"],
             name: "userChoice"
         }
     ]).then(function ({ userChoice }) {
@@ -42,65 +43,65 @@ function createManager() {
             type: "text",
             name: "employeeName",
             message: "Enter Employee name",
-            
+
 
         },
         {
             type: "text",
             name: "employeeId",
             message: "Enter Employee id",
-            
+
         },
         {
             type: "text",
             name: "employeeEmail",
             message: "Enter Employee email",
-            
+
         },
         {
             type: "text",
             name: "officeNum",
             message: "Enter office number",
-            
+
         }
 
-    ]).then(function({employeeName, employeeId, employeeEmail, officeNum}){
+    ]).then(function ({ employeeName, employeeId, employeeEmail, officeNum }) {
         var currentManager = new Manager(employeeName, employeeId, employeeEmail, officeNum);
         managerArray.push(currentManager);
         startMenu();
     })
 }
 function createIntern() {
-    console.log("Add Manager")
+    console.log("Add Intern")
     console.log("------------")
     inquirer.prompt([
         {
             type: "text",
             name: "employeeName",
             message: "Enter Employee name",
-            
+
 
         },
         {
             type: "text",
             name: "employeeId",
             message: "Enter Employee id",
-            
+
         },
         {
             type: "text",
             name: "employeeEmail",
             message: "Enter Employee email",
-            
+
         },
         {
             type: "text",
             name: "school",
             message: "Enter school name",
-            
+
         }
 
-    ]).then(function({employeeName, employeeId, employeeEmail, school}){
+    ]).then(function ({ employeeName, employeeId, employeeEmail, school }) {
         var currentIntern = new Intern(employeeName, employeeId, employeeEmail, school);
         internArray.push(currentIntern);
         startMenu();
@@ -114,40 +115,107 @@ function createEngineer() {
             type: "text",
             name: "employeeName",
             message: "Enter Employee name",
-            
+
 
         },
         {
             type: "text",
             name: "employeeId",
             message: "Enter Employee id",
-            
+
         },
         {
             type: "text",
             name: "employeeEmail",
             message: "Enter Employee email",
-            
+
         },
         {
             type: "text",
             name: "github",
             message: "Enter GitHub username",
-            
+
         }
 
-    ]).then(function({employeeName, employeeId, employeeEmail, github}){
+    ]).then(function ({ employeeName, employeeId, employeeEmail, github }) {
         var currentEngineer = new Engineer(employeeName, employeeId, employeeEmail, github);
         engineerArray.push(currentEngineer);
         startMenu();
     })
 }
 function createHTML() {
-    console.log(managerArray, internArray, engineerArray);
+    const employeeArray = [];
+    internArray.forEach(intern => {
+        const internTemplate =
+            `
+        <div class="Card">
+            <h1>Intern</h1>
+            <h4>${employeeName}</h4>
+            <h4>${employeeId}</h4>
+            <h4>${employeeEmail}</h4>
+            <h4>${school}</h4>
+        </div>
+        `;
+        employeeArray.push(internTemplate);
+    });
+    console.log(employeeArray);
+
+    managerArray.forEach(manager => {
+        const managerTemplate =
+            `
+        <div class="Card">
+            <h1>Manager</h1>
+            <h4>${employeeName}</h4>
+            <h4>${employeeId}</h4>
+            <h4>${employeeEmail}</h4>
+            <h4>${officeNum}</h4>
+        </div>    
+        `;
+        employeeArray.push(managerTemplate);
+    });
+    console.log(employeeArray);
+
+    engineerArray.forEach(engineer => {
+        const engineerTemplate =
+            `
+        <div class="Card">
+            <h1>Engineer</h1>
+            <h4>${employeeName}</h4>
+            <h4>${employeeId}</h4>
+            <h4>${employeeEmail}</h4>
+            <h4>${github}</h4>
+        </div>
+        `;
+        employeeArray.push(engineerArray);
+    });
+    console.log(employeeArray);
+
+    const HTMLTemplate =
+        `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manager Profile</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    </head>
+    <body>
+    ${joinedEmployeeArray}
+    </body>
+</html>
+`;
+
+
+
+    fs.writeFileSync("createHTML.html", createHTML, (err) =>
+        err ? console.log(err) : console.log('Success!!!')
+    )
+    console.log(readMeFile)
     // for loop for manager array
     //Generate HTML code with manager values  var htmlManager =""
     // repeat previous steps for engineer and intern
     // var HTML = beginneing htm + managerHTML = EngineerHTML +interhtml ++end html
     //fs.writeFilesysn("./index.html",HTML)
-}
+};
 startMenu();
