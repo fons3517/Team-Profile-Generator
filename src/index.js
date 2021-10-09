@@ -6,7 +6,7 @@ const fs = require('fs');
 let internArray = [];
 let managerArray = [];
 let engineerArray = [];
-
+const joinedEmployeeArray = ['internArray', 'managerArray', 'engineerArray']
 
 function startMenu() {
 
@@ -141,8 +141,8 @@ function createEngineer() {
         var currentEngineer = new Engineer(employeeName, employeeId, employeeEmail, github);
         engineerArray.push(currentEngineer);
         startMenu();
-    })
-}
+    });
+};
 function createHTML() {
     const employeeArray = [];
     internArray.forEach(intern => {
@@ -190,8 +190,8 @@ function createHTML() {
     });
     console.log(employeeArray);
 
-    const HTMLTemplate =
-        `<!DOCTYPE html>
+    const HTMLTemplate = `
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -207,15 +207,16 @@ function createHTML() {
 `;
 
 
-
-    fs.writeFileSync("createHTML.html", createHTML, (err) =>
+    fs.writeFileSync("index.html", createHTML, (err) =>
         err ? console.log(err) : console.log('Success!!!')
-    )
-    console.log(readMeFile)
+    );
+    console.log(createHTML)
+
+    console.log(joinedEmployeeArray.join());
+
     // for loop for manager array
     //Generate HTML code with manager values  var htmlManager =""
     // repeat previous steps for engineer and intern
-    // var HTML = beginneing htm + managerHTML = EngineerHTML +interhtml ++end html
     //fs.writeFilesysn("./index.html",HTML)
 };
 startMenu();
