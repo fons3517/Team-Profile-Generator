@@ -6,7 +6,6 @@ const fs = require('fs');
 let internArray = [];
 let managerArray = [];
 let engineerArray = [];
-const joinedEmployeeArray = ['internArray', 'managerArray', 'engineerArray']
 
 function startMenu() {
 
@@ -145,8 +144,9 @@ function createEngineer() {
 };
 function createHTML() {
     const employeeArray = [];
+    let internTemplate = "";
     internArray.forEach(intern => {
-        const internTemplate =
+    internTemplate =
             `
         <div class="Card">
             <h1>Intern</h1>
@@ -159,9 +159,9 @@ function createHTML() {
         employeeArray.push(internTemplate);
     });
     console.log(employeeArray);
-
+        let managerTemplate = "";
     managerArray.forEach(manager => {
-        const managerTemplate =
+    managerTemplate +=
             `
         <div class="Card">
             <h1>Manager</h1>
@@ -174,9 +174,9 @@ function createHTML() {
         employeeArray.push(managerTemplate);
     });
     console.log(employeeArray);
-
+     let engineerTemplate="";
     engineerArray.forEach(engineer => {
-        const engineerTemplate =
+         engineerTemplate +=
             `
         <div class="Card">
             <h1>Engineer</h1>
@@ -201,22 +201,20 @@ function createHTML() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
     <body>
-    ${joinedEmployeeArray}
+    ${managerTemplate}
+    ${internTemplate}
+    ${engineerTemplate}
     </body>
 </html>
 `;
 
 
-    fs.writeFileSync("index.html", createHTML, (err) =>
+    fs.writeFileSync("index.html", HTMLTemplate, (err) =>
         err ? console.log(err) : console.log('Success!!!')
     );
-    console.log(createHTML)
+    console.log(HTMLTemplate)
 
-    console.log(joinedEmployeeArray.join());
 
-    // for loop for manager array
-    //Generate HTML code with manager values  var htmlManager =""
-    // repeat previous steps for engineer and intern
     //fs.writeFilesysn("./index.html",HTML)
 };
 startMenu();
