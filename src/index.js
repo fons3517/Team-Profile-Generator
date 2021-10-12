@@ -12,7 +12,7 @@ function startMenu() {
     inquirer.prompt([
         {
             type: "list",
-            message: "Would you like to add a team member?",
+            message: "Would you like to add a team member, or exit application?",
             choices: ["Intern", "Manager", "Engineer", "Exit Application"],
             name: "userChoice"
         }
@@ -150,10 +150,10 @@ function createHTML() {
             `
         <div class="Card">
             <h1>Intern</h1>
-            <h4>${employeeName}</h4>
-            <h4>${employeeId}</h4>
-            <h4>${employeeEmail}</h4>
-            <h4>${school}</h4>
+            <h4>${intern.name}</h4>
+            <h4>${intern.id}</h4>
+            <h4>${intern.email}</h4>
+            <h4>${intern.school}</h4>
         </div>
         `;
         employeeArray.push(internTemplate);
@@ -165,10 +165,10 @@ function createHTML() {
             `
         <div class="Card">
             <h1>Manager</h1>
-            <h4>${employeeName}</h4>
-            <h4>${employeeId}</h4>
-            <h4>${employeeEmail}</h4>
-            <h4>${officeNum}</h4>
+            <h4>${manager.name}</h4>
+            <h4>${manager.id}</h4>
+            <h4>${manager.email}</h4>
+            <h4>${manager.officeNum}</h4>
         </div>    
         `;
         employeeArray.push(managerTemplate);
@@ -180,10 +180,10 @@ function createHTML() {
             `
         <div class="Card">
             <h1>Engineer</h1>
-            <h4>${employeeName}</h4>
-            <h4>${employeeId}</h4>
-            <h4>${employeeEmail}</h4>
-            <h4>${github}</h4>
+            <h4>${engineer.name}</h4>
+            <h4>${engineer.id}</h4>
+            <h4>${engineer.email}</h4>
+            <h4>${engineer.githubName}</h4>
         </div>
         `;
         employeeArray.push(engineerArray);
@@ -201,9 +201,14 @@ function createHTML() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
     <body>
+    <header class="bg-primary text-center">
+    <h1>Team Profile Generator</h1>
+    </header>
+    <main class="d-flex">
     ${managerTemplate}
     ${internTemplate}
     ${engineerTemplate}
+    </main>
     </body>
 </html>
 `;
