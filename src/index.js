@@ -218,8 +218,5 @@ function createHTML() {
         err ? console.log(err) : console.log('Success!!!')
     );
     console.log(HTMLTemplate)
-
-
-    //fs.writeFilesysn("./index.html",HTML)
 };
 startMenu();
