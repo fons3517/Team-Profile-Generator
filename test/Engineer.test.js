@@ -20,7 +20,8 @@ describe("Initialization", () => {
     describe("getRole", () => {
         it("should return the role Engineer from the object", () => {
             const obj = new Engineer("Warren", 9876, "warren@email.com", "WarrenGBeatty");
-            const getRole = obj.getRole("Engineer")
+            const getRole = obj.getRole("Engineer");
+            expect(getRole).toEqual("Engineer")
         });
     });
 });
