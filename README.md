@@ -8,11 +8,11 @@ TEAM-PROFILE-GENERATOR is a Node.js command-line application that takes in infor
 
 ### Table of Contents
 
-_[Project_Title](#project_title)
-_[Desciption](#description)
-_[Contributors](#contributors)
-_[Packages](#packages)
-\_[Media](#media)
+- [Project_Title](#project_title)
+- [Desciption](#description)
+- [Contributors](#contributors)
+- [Packages](#packages)
+- [Media](#media)
 
 ### Contributors
 
