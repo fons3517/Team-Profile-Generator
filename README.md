@@ -24,7 +24,7 @@ Alfonso Robles
 
 #### Media
 
-[TeamProfGen media link](https://watch.screencastify.com/v/lIsyevHmA2uaM1PLgUUI)
+[TeamProfGen media link](https://watch.screencastify.com/v/JR5J0pEncaf5cBiIntFN)
 
 ![ image](/Assets/PassAllTests-2021-10-28-021234.jpg)
 ![ image](/Assets/TeamProfGenInit-2021-10-28-021457.jpg)
